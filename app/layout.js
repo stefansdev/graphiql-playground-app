@@ -1,9 +1,13 @@
 import '@/style/app.scss';
+import { Analytics } from '@vercel/analytics/react';
 
 export default function RootLayout({ children }) {
 	return (
 		<html lang="en">
-			<body>{children}</body>
+			<body>
+				{children}
+				<Analytics />
+			</body>
 		</html>
 	);
 }

@@ -9,8 +9,6 @@
         "lint": "next lint"
     },
     "dependencies": {
-        "graphiql": "^2.4.1",
-        "graphql": "^16.6.0",
         "@headlessui/react": "^1.7.13",
         "@heroicons/react": "^2.0.16",
         "@tailwindcss/typography": "^0.5.9",
@@ -18,6 +16,8 @@
         "eslint": "8.37.0",
         "eslint-config-next": "13.2.4",
         "eslint-config-wesbos": "^3.2.3",
+        "graphiql": "^2.4.1",
+        "graphql": "^16.6.0",
         "next": "13.2.4",
         "prettier": "^2.8.7",
         "react": "18.2.0",
