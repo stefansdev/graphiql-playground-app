@@ -36,21 +36,22 @@ const GraphiQLWrapper = () => {
 				</div>
 				<Contribute />
 			</div>
-
-			<GraphiQL
-				fetcher={async (graphQLParams) => {
-					const data = await fetch(url, {
-						method: 'POST',
-						headers: {
-							Accept: 'application/json',
-							'Content-Type': 'application/json',
-							Authorization: `Bearer ${token}`,
-						},
-						body: JSON.stringify(graphQLParams),
-					});
-					return data.json().catch(() => data.text());
-				}}
-			/>
+			{url && (
+				<GraphiQL
+					fetcher={async (graphQLParams) => {
+						const data = await fetch(url, {
+							method: 'POST',
+							headers: {
+								Accept: 'application/json',
+								'Content-Type': 'application/json',
+								Authorization: `Bearer ${token}`,
+							},
+							body: JSON.stringify(graphQLParams),
+						});
+						return data.json().catch(() => data.text());
+					}}
+				/>
+			)}
 		</>
 	);
 };
