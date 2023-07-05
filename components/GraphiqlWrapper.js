@@ -9,6 +9,13 @@ const GraphiQLWrapper = () => {
 	const [url, setUrl] = useState('');
 	const [token, setToken] = useState(null);
 
+    useEffect(() => {
+        const url = localStorage.getItem('url');
+        const token = localStorage.getItem('token');
+        if (url) setUrl(url);
+        if (token) setToken(token);
+    }, []);
+
 	return (
 		<>
 			<div className="flex bg-blue-200 py-2 px-4 space-x-4 text-sm font-mono justify-between items-center">
@@ -19,7 +26,10 @@ const GraphiQLWrapper = () => {
 							id="url"
 							placeholder="GraphQL URL"
 							value={url}
-							onChange={(e) => setUrl(e.target.value)}
+							onChange={(e) => {
+                                setUrl(e.target.value)
+                                localStorage.setItem('url', e.target.value);
+                            }}
 							className="rounded-md border min-w-[300px] bg-white outline-none px-4 py-2"
 						/>
 					</div>
@@ -29,7 +39,10 @@ const GraphiQLWrapper = () => {
 							id="token"
 							placeholder="Bearer token"
 							value={token}
-							onChange={(e) => setToken(e.target.value)}
+							onChange={(e) => {
+                                setToken(e.target.value);
+                                localStorage.setItem('token', e.target.value);
+                            }}
 							className="rounded-md border min-w-[300px] bg-white outline-none px-4 py-2"
 						/>
 					</div>
